@@ -8,7 +8,7 @@
       "fileTypes": [ "*" ]
     },
     "images": {
-      "fileTypes": [ "gif", "jpg", "png" ]
+      "fileTypes": [ "gif", "jpg", "jpeg", "png" ]
     },
     "videos": {
       "fileTypes": [ "avi", "gif", "mov", "mpg", "mp4", "wmv" ]
