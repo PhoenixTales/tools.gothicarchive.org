@@ -1,0 +1,23 @@
+{
+  "domain": "gothicarchive.org",
+  "repositories": {
+    "audio": {
+      "fileTypes": [ "mp3" ]
+    },
+    "bin": {
+      "fileTypes": [ "*" ]
+    },
+    "images": {
+      "fileTypes": [ "jpg", "png" ]
+    },
+    "tools": {
+      "fileTypes": [ "*" ]
+    },
+    "videos": {
+      "fileTypes": [ "mp4" ]
+    },
+    "www": {
+      "fileTypes": [ "md", "txt", "html", "htm" ]
+    }
+  }
+}
