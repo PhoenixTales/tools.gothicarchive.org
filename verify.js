@@ -62,8 +62,9 @@ const verifier = {
       }
       const allFiles = utils.listRecursively(repositoryPath);
       const standardFilesSet = new Set(config.standardFiles.map(f => path.resolve(repositoryPath, f)));
+      const specialFilesSet = new Set((config.repositories[repository].specialFiles ?? []).map(f => path.resolve(repositoryPath, f)));
       for(let file of allFiles) {
-        if (standardFilesSet.has(file)) {
+        if (standardFilesSet.has(file) || specialFilesSet.has(file)) {
           continue;
         }
         const extension = utils.getExtension(file);

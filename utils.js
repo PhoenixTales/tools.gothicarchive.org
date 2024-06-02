@@ -32,7 +32,12 @@ const utils = {
    * @returns {string}
    */
   getExtension(filePath) {
-    return filePath.replace(new RegExp(".*\\.", "g"), "").toLowerCase();
+    const fileName = filePath.replace(new RegExp(".*[/\\\\]", "g"), "");
+    const lastDotIndex = fileName.lastIndexOf(".");
+    if (lastDotIndex < 0) {
+      return "";
+    }
+    return fileName.substring(lastDotIndex+1).toLowerCase();
   }
 }
 

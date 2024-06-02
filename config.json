@@ -8,13 +8,14 @@
       "fileTypes": [ "*" ]
     },
     "images": {
-      "fileTypes": [ "gif", "jpg", "jpeg", "png" ]
+      "fileTypes": [ "gif", "ico", "jpg", "jpeg", "png" ]
     },
     "videos": {
       "fileTypes": [ "avi", "gif", "mov", "mpg", "mp4", "wmv" ]
     },
     "www": {
-      "fileTypes": [ "md", "txt", "html", "htm" ]
+      "fileTypes": [ "css", "js", "md", "txt", "html", "htm", "swf", "wasm" ],
+      "specialFiles": [ "Gemfile", ".gitignore", ".gitmodules", "_config.yml" ]
     }
   },
   "standardFiles": [
