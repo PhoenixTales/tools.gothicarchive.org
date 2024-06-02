@@ -1,0 +1,23 @@
+{
+	"folders": [
+		{
+			"path": "../audio.gothicarchive.org"
+		},
+		{
+			"path": "../bin.gothicarchive.org"
+		},
+		{
+			"path": "../images.gothicarchive.org"
+		},
+		{
+			"path": "."
+		},
+		{
+			"path": "../videos.gothicarchive.org"
+		},
+		{
+			"path": "../www.gothicarchive.org"
+		}
+	],
+  "settings": {}
+}

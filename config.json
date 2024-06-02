@@ -8,7 +8,7 @@
       "fileTypes": [ "*" ]
     },
     "images": {
-      "fileTypes": [ "jpg", "png" ]
+      "fileTypes": [ "gif", "jpg", "png" ]
     },
     "videos": {
       "fileTypes": [ "avi", "gif", "mov", "mpg", "mp4", "wmv" ]
@@ -19,6 +19,7 @@
   },
   "standardFiles": [
     "CNAME",
+    "favicon.ico",
     "index.html",
     "README.md"
   ]
