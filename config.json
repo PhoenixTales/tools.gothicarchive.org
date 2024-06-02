@@ -2,7 +2,7 @@
   "domain": "gothicarchive.org",
   "repositories": {
     "audio": {
-      "fileTypes": [ "mp3" ]
+      "fileTypes": [ "mp3", "ogg" ]
     },
     "bin": {
       "fileTypes": [ "*" ]
@@ -10,14 +10,16 @@
     "images": {
       "fileTypes": [ "jpg", "png" ]
     },
-    "tools": {
-      "fileTypes": [ "*" ]
-    },
     "videos": {
-      "fileTypes": [ "mp4" ]
+      "fileTypes": [ "avi", "gif", "mov", "mpg", "mp4", "wmv" ]
     },
     "www": {
       "fileTypes": [ "md", "txt", "html", "htm" ]
     }
-  }
+  },
+  "standardFiles": [
+    "CNAME",
+    "index.html",
+    "README.md"
+  ]
 }
