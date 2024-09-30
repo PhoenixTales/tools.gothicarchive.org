@@ -1,12 +1,32 @@
 #!/usr/bin/env bash
 set -e errexit
 
-# check initial requirements
-if [[ ! -d media/.git ]]
-then
-    echo "do recursive clone with submodule /media and run from repository root" > /dev/stderr
-    exit 1
+toolsDir=$(dirname ${0})
+wwwDir="${toolsDir}/../www.gothicarchive.org"
+
+if [[ ! -e "${wwwDir}" ]]; then
+  echo "can't find ${wwwDir}" >&2
+  exit 1
 fi
+
+cd "${wwwDir}"
+
+set -x
+subRepositories=( audio bin images videos )
+
+# prepare symlinks
+for repository in "${subRepositories[@]}"
+do
+  if [[ -e "${repository}/.git" ]]; then
+    continue # already cloned
+  fi
+  if [[ ! -e "../${repository}.gothicarchive.org/.git" ]]
+  then
+      echo "do recursive clone with submodules first" >&2
+      exit 1
+  fi
+  ln -s "../${repository}.gothicarchive.org" "${repository}"
+done
 
 # stop spawned jekyll process on script exit
 trap "trap - SIGTERM && kill -- -$$" SIGINT SIGTERM EXIT
@@ -17,10 +37,15 @@ JEKYLL_ENV=development bundle exec jekyll serve  --port 4420 &
 # keep recreating the symlink that jekyll removes on some updates
 while :
 do
-    if [[ ! -e _site/media ]]
+  if [[ ! -e "_site" ]]; then
+    mkdir "_site"
+  fi
+  for repository in "${subRepositories[@]}"
+  do
+    if [[ ! -e "_site/${repository}" ]]
     then
-        ln -s ${PWD}/media _site/media
+        ln -s "${PWD}/${repository}" "_site/${repository}"
     fi
-    sleep 5
+  done
+  sleep 5
 done
-

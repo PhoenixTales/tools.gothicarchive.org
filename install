@@ -1,3 +1,15 @@
-#!/bin/sh
+#!/usr/bin/env bash
+set -e errexit
+
+toolsDir=$(dirname ${0})
+wwwDir="${toolsDir}/../www.gothicarchive.org"
+
+if [[ ! -e "${wwwDir}" ]]; then
+  echo "can't find ${wwwDir}" >&2
+  exit 1
+fi
+
+set -x
+cd "${wwwDir}"
 bundle config set path 'vendor/bundle'
 bundle install
