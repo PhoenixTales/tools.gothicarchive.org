@@ -10,6 +10,9 @@ if [[ ! -e "${wwwDir}" ]]; then
 fi
 
 set -x
-cd "${wwwDir}"
+if [[ ! -e "_config.yml" ]]; then
+  cd "${wwwDir}"
+fi
 bundle config set path 'vendor/bundle'
 bundle install
+bundle update
