@@ -27,6 +27,7 @@ do
       echo "do recursive clone with submodules first" >&2
       exit 1
   fi
+  export MSYS="winsymlinks:nativestrict"
   ln -s "../${repository}.gothicarchive.org" "${repository}"
 done
 
