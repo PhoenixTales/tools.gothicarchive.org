@@ -35,20 +35,20 @@ done
 trap "trap - SIGTERM && kill -- -$$" SIGINT SIGTERM EXIT
 
 # start jekyll in background
-JEKYLL_ENV=development bundle exec jekyll serve  --port 4420
+JEKYLL_ENV=development bundle exec jekyll serve WW--port 4420 &
 
 # keep recreating the symlink that jekyll removes on some updates
-# while :
-# do
-#   if [[ ! -e "_site" ]]; then
-#     mkdir "_site"
-#   fi
-#   for repository in "${subRepositories[@]}"
-#   do
-#     if [[ ! -e "_site/${repository}" ]]
-#     then
-#         ln -s "${PWD}/${repository}" "_site/${repository}"
-#     fi
-#   done
-#   sleep 5
-# done
+while :
+do
+  if [[ ! -e "_site" ]]; then
+    mkdir "_site"
+  fi
+  for repository in "${subRepositories[@]}"
+  do
+    if [[ ! -e "_site/${repository}" ]]
+    then
+        ln -s "${PWD}/${repository}" "_site/${repository}"
+    fi
+  done
+  sleep 5
+done
